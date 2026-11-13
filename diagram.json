@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "student",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-a4988", "id": "drvL", "top": -120, "left": 200, "attrs": {} },
+    { "type": "wokwi-a4988", "id": "drvR", "top": 60, "left": 200, "attrs": {} },
+    { "type": "wokwi-stepper-motor", "id": "motL", "top": -200, "left": 380, "attrs": { "size": "17" } },
+    { "type": "wokwi-stepper-motor", "id": "motR", "top": 0, "left": 380, "attrs": { "size": "17" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "esp:26", "drvL:STEP", "green", [] ],
+    [ "esp:27", "drvL:DIR", "blue", [] ],
+    [ "esp:14", "drvR:STEP", "green", [] ],
+    [ "esp:12", "drvR:DIR", "blue", [] ],
+
+    [ "esp:5V", "drvL:VMOT", "red", [] ],
+    [ "esp:5V", "drvR:VMOT", "red", [] ],
+    [ "esp:3V3", "drvL:VDD", "red", [] ],
+    [ "esp:3V3", "drvR:VDD", "red", [] ],
+    [ "esp:GND.1", "drvL:GND.1", "black", [] ],
+    [ "esp:GND.1", "drvL:GND.2", "black", [] ],
+    [ "esp:GND.1", "drvR:GND.1", "black", [] ],
+    [ "esp:GND.1", "drvR:GND.2", "black", [] ],
+    [ "drvL:RESET", "drvL:SLEEP", "gray", [] ],
+    [ "drvR:RESET", "drvR:SLEEP", "gray", [] ],
+    [ "esp:GND.1", "drvL:ENABLE", "black", [] ],
+    [ "esp:GND.1", "drvR:ENABLE", "black", [] ],
+
+    [ "drvL:1B", "motL:B-", "green", [] ],
+    [ "drvL:1A", "motL:B+", "green", [] ],
+    [ "drvL:2A", "motL:A+", "green", [] ],
+    [ "drvL:2B", "motL:A-", "green", [] ],
+    [ "drvR:1B", "motR:B-", "green", [] ],
+    [ "drvR:1A", "motR:B+", "green", [] ],
+    [ "drvR:2A", "motR:A+", "green", [] ],
+    [ "drvR:2B", "motR:A-", "green", [] ]
+  ],
+  "dependencies": {}
+}

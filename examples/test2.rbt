@@ -1,0 +1,6 @@
+// Valid: nested loops and backward
+REPEAT 2 {
+  FORWARD 3;
+  REPEAT 2 { LEFT 45; FORWARD 2; }
+  BACKWARD 1;
+}
