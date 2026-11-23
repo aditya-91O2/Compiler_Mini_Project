@@ -1,4 +1,4 @@
 // Valid: drive a small square
-FORWARD 5;
+FORWARD 2;
 RIGHT 90;
-REPEAT 3 { FORWARD 5; RIGHT 90; }
+REPEAT 3 { FORWARD 2; RIGHT 90; }

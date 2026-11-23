@@ -5,8 +5,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 os.chdir(HERE)                                   # always run from the project folder
 src = sys.argv[1] if len(sys.argv) > 1 else os.path.join("examples", "test1.rbt")
 
-r = subprocess.run([sys.executable, "compiler.py", src, "-o", os.path.join("src", "main.cpp"),
-                    "--ast", "--ir", "--trace"])
+r = subprocess.run([
+    sys.executable, "compiler.py", src,
+    "-o", os.path.join("src", "main.cpp"),
+    "--target", "dc",
+    "--ast", "--ir", "--trace"
+]) 
 if r.returncode != 0:
     sys.exit(r.returncode)                       # compile error already printed
 
